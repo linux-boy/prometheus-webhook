@@ -12,7 +12,7 @@ def sendMessageToDingTalk():
     # print(request.data)
     d_data = json.loads(request.data)
     # print(d_data)
-    s_title = d_data['commonLabels']['alerts'][0]['annotations']['description']
+    s_title = d_data['alerts'][0]['annotations']['description']
     s_text = ''
     for b_text in d_data['alerts']:
         s_startsAt = b_text['startsAt']
