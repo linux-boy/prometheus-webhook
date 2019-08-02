@@ -21,7 +21,7 @@ def sendMessageToDingTalk():
 
     d_body = messagebody.dingMarkDown(s_title=s_title, s_content=s_startsAt+'\n'+s_endsAt+'\n'+s_text)
     # print(d_body)
-    sendmessage(d_body)
+    sendmessage.sendDingTalk(d_body)
     return '200'
     
 

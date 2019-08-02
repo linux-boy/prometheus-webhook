@@ -20,11 +20,11 @@ def dingLink(s_content, s_title, s_picUrl, s_messageUrl):
         }
     }
 
-def dingMarkDown(s_titile, s_content, l_mobiles, b_isAtALL):
+def dingMarkDown(s_title, s_content, l_mobiles=None, b_isAtALL=None):
     return {
         "msgtype": "markdown",
         "markdown": {
-            "title" : s_titile ,
+            "title" : s_title ,
             "text" : s_content
         },
         "at" : {
