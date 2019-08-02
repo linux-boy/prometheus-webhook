@@ -17,7 +17,7 @@ def sendMessageToDingTalk():
     for b_text in d_data['alerts']:
         s_startsAt = b_text['startsAt']
         s_endsAt = b_text['endsAt']
-        s_text = s_title +'#### ['+ b_text['labels']['cluster']+']'+'('+b_text['generatorURL']+')'
+        s_text = s_text +' #### ['+ b_text['labels']['cluster']+']'+'('+b_text['generatorURL']+')'
 
     d_body = messagebody.dingMarkDown(s_title=s_title, s_content=s_startsAt+'\n'+s_text)
     # print(d_body)
