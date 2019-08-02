@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/dtwebhook", methods=['POST'])
 def sendMessageToDingTalk():
     # print(request.data)
-    d_data = json.loads(request.data)
+    d_data = json.loads(request.data.decode())
     # print(d_data)
     s_title = d_data['alerts'][0]['annotations']['description']
     s_text = ''
