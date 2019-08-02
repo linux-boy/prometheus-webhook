@@ -9,14 +9,18 @@ app = Flask(__name__)
 
 @app.route("/dtwebhook", methods=['POST'])
 def sendMessageToDingTalk():
-    d_data = json.loads(request.data.decode())
-    s_title = d_data['annotations']['description']
-    s_startsAt = d_data['startsAt']
-    s_endsAt = d_data['endsAt']
+    # print(request.data)
+    d_data = json.loads(request.data)
+    # print(d_data)
+    s_title = d_data['commonLabels']['alerts'][0]['annotations']['description']
     s_text = ''
     for b_text in d_data['alerts']:
+        s_startsAt = b_text['startsAt']
+        s_endsAt = b_text['endsAt']
         s_title = s_title +'['+ b_text['labels']['cluster']+']'+'('+b_text['labels']['generatorURL']+')'
+
     d_body = messagebody.dingMarkDown(s_title=s_title, s_content=s_startsAt+'\n'+s_endsAt+'\n'+s_text)
+    # print(d_body)
     sendmessage(d_body)
     return '200'
     
